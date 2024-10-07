@@ -20,3 +20,4 @@ React.jsを使って実装しています。
 - 連続王手の千日手
 - 持将棋判定
 - 平手以外の初期局面
+https://sakalt.github.io/super-shogi/public/index.html
