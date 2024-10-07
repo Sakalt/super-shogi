@@ -7,6 +7,7 @@ import { Lance } from "./pieces/lance";
 import { Knight } from "./pieces/knight";
 import { Silver } from "./pieces/silver";
 import { Gold } from "./pieces/gold";
+import { Silvergold } from "./pieces/silvergold";
 import { Bishop } from "./pieces/bishop";
 import { Rook } from "./pieces/rook";
 import { King } from "./pieces/king";
@@ -45,8 +46,8 @@ export function make_board(sfen="lnsgkgsnl/1r5b1/ppppppppp/9/9/9/PPPPPPPPP/1B5R1
     squares[7][8] = new Knight(true);
 
     squares[2][0] = new Silver(false);
-    squares[6][0] = new Silver(false);
-    squares[2][8] = new Silver(true);
+    squares[6][0] = new Silvergold(false);
+    squares[2][8] = new Silvergold(true);
     squares[6][8] = new Silver(true);
 
     squares[3][0] = new Gold(false);
@@ -78,6 +79,7 @@ export function set_piece(n: number, is_black: boolean): Piece{
   if(n === 4) piece = new Knight(is_black);
   if(n === 5) piece = new Lance(is_black);
   if(n === 6) piece = new Pawn(is_black);
+  if(n === 15) piece = new Silvergold(is_black);
   return piece;
 }
 
@@ -117,7 +119,7 @@ function control_pos_sub(control_pos: number[][], pos: Piece[][], turn: boolean,
     }
     return;
   }
-  if(num === 2 || num === 3 || num === 4 || num === 7 || (11 <= num && num <= 14)){
+  if(num === 2 || num === 3 || num === 4 || num === 7 || num === 15 || (11 <= num && num <= 14)){
     let dx: number[];
     let dy: number[];
     // 桂
@@ -134,6 +136,11 @@ function control_pos_sub(control_pos: number[][], pos: Piece[][], turn: boolean,
     else if(num === 2 || (11 <= num && num <= 14)){
       dx = new Array<number>(-1, 0, 1, 1, 0, -1);
       dy = new Array<number>(-1, -1, -1, 0, 1, 0);
+    }
+    //銀金
+    else if(num === 15 || (11 <= num && num <= 14)){
+      dx = new Array<number>(-1, 0, 1, 1, 0, -1, -2, 2, -3, 3);
+      dy = new Array<number>(-1, -1, -1, 0, 1, 0, -2, 2, -3, 3);
     }
     // 玉
     else{
