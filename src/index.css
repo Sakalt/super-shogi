@@ -133,7 +133,7 @@ ol, ul {
   background: white;
   border: 1px solid white;
   font-size: 30px;
-  font-weight: bold;
+  font-weight: italic;
   line-height: 30px;
   height: 30px;
   margin-top: -3px;
@@ -204,11 +204,11 @@ ol, ul {
 
 
 .piece{
-  background: rgb(243, 194, 129);
+  background: rgb(240, 194, 132);
 }
 
 .final{
-  background: #BB8E5F;
+  background: #CC4E3;
 }
 
 .white{
@@ -216,7 +216,7 @@ ol, ul {
 }
 
 .attack{
-  background: rgb(240, 211, 175);
+  background: rgb(240, 200, 230);
 }
 
 .square:focus {
@@ -224,7 +224,7 @@ ol, ul {
 }
 
 .kbd-navigation .square:focus {
-  background: #ddd;
+  background: #ccc;
 }
 
 .center{
@@ -234,5 +234,5 @@ ol, ul {
 }
 
 .click{
-  background: rgb(224, 161, 90);
+  background: rgb(33, 96, 90);
 }
